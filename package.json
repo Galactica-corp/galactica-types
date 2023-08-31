@@ -1,11 +1,24 @@
 {
-  "name": "galactica-types",
+  "name": "@galactica-net/galactica-types",
   "version": "0.1.0",
   "description": "TypeScript types for Galactica Network development and interfaces",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc"
   },
-  "author": "",
-  "license": "GPL-3.0-or-later"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Galactica-corp/galactica-types.git"
+  },
+  "author": "Galactica Network",
+  "license": "GPL-3.0-or-later",
+  "homepage": "https://galactica.com",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
 }
