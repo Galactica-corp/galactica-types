@@ -1,39 +1,39 @@
-import { ZkCertStandard } from './zkCertStandard';
+import { ZkCertStandard, ZkKYCContent } from './zkCertStandard';
 
 
 /// Data required for ZK ownership proofs
 export interface OwnershipProofInput {
     holderCommitment: string;
     // public key
-    Ax: string;
-    Ay: string;
+    ax: string;
+    ay: string;
     // signature
-    S: string;
-    R8x: string;
-    R8y: string;
+    s: string;
+    r8x: string;
+    r8y: string;
 }
 
 /// Data required for ZK authorization proofs
 export interface AuthorizationProofInput {
     userAddress: string;
     // public key
-    Ax: string;
-    Ay: string;
+    ax: string;
+    ay: string;
     // signature
-    S: string;
-    R8x: string;
-    R8y: string;
+    s: string;
+    r8x: string;
+    r8y: string;
 }
 
 /// Data required for ZK fraud proofs
 export interface ProviderData {
     // public eddsa key of provider
-    Ax: string;
-    Ay: string;
+    ax: string;
+    ay: string;
     // signature of the zkCert content hash by the provider
-    S: string;
-    R8x: string;
-    R8y: string;
+    s: string;
+    r8x: string;
+    r8y: string;
 }
 
 /// Data required for ZK fraud proofs
@@ -55,9 +55,10 @@ export interface HumanIDProofInput {
 /// Data contained in a ZK certificate
 export interface ZkCertData {
     holderCommitment: string;
+    // identifier of the zkCert standard (e.g. zkKYC, zkDiploma, zkGymMembership, ...)
     zkCertStandard: ZkCertStandard;
     randomSalt: number;
-    fields: Record<string, any>;
+    content: ZkKYCContent | Record<string, any>;
     providerData: ProviderData;
     contentHash: string;
     leafHash: string;
